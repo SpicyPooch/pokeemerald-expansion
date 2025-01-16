@@ -4430,6 +4430,16 @@
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/LittlerootTown_House2/border.bin",
       "blockdata_filepath": "data/layouts/LittlerootTown_House2/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE100",
+      "name": "Route100_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Route100/border.bin",
+      "blockdata_filepath": "data/layouts/Route100/map.bin"
     }
   ]
 }

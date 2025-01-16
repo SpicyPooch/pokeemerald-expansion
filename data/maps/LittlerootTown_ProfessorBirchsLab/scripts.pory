@@ -1,0 +1,124 @@
+mapscripts LittlerootTown_ProfessorBirchsLab_MapScripts {}
+
+script LittlerootTown_ProfessorBirchsLab_EventScript_Treecko{
+
+    lockall
+    showmonpic(SPECIES_TREECKO, 10, 3)
+    msgbox("Do you want Treecko?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_TREECKO, 5, , ITEM_POKE_BALL)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            msgbox("Received Treecko")
+            removeobject(1)
+            setflag(FLAG_RECEIVED_TREECKO)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            msgbox("Received Treecko")
+            removeobject(1)
+            setflag(FLAG_RECEIVED_TREECKO)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(Starter_NotChosen)
+    }
+    waitmessage
+    releaseall
+    end
+}
+
+script LittlerootTown_ProfessorBirchsLab_EventScript_Torchic{
+
+    lockall
+    showmonpic(SPECIES_TORCHIC, 10, 3)
+    msgbox("Do you want Torchic?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_TORCHIC, 5, , ITEM_POKE_BALL)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            msgbox("Received Torchic")
+            removeobject(2)
+            setflag(FLAG_RECEIVED_TORCHIC)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            msgbox("Received Torchic")
+            removeobject(2)
+            setflag(FLAG_RECEIVED_TORCHIC)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(Starter_NotChosen)
+    }
+    waitmessage
+    releaseall
+    end
+}
+
+script LittlerootTown_ProfessorBirchsLab_EventScript_Mudkip{
+
+    lockall
+    showmonpic(SPECIES_MUDKIP, 10, 3)
+    msgbox("Do you want Mudkip?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == YES){
+        givemon(SPECIES_MUDKIP, 5, , ITEM_POKE_BALL)
+        if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
+            msgbox("Received Mudkip")
+            removeobject(3)
+            setflag(FLAG_RECEIVED_MUDKIP)
+            call(NicknamePartyMon)
+        }
+        elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
+            msgbox("Received Mudkip")
+            removeobject(3)
+            setflag(FLAG_RECEIVED_MUDKIP)
+            call(NicknameBoxMon)
+        }
+        else{
+            hidemonpic
+            msgbox("No More Room")
+        }
+    }
+    else{
+        hidemonpic
+        msgbox(Starter_NotChosen)
+    }
+    waitmessage
+    releaseall
+    end
+}
+
+script NicknamePartyMon{
+
+    msgbox("Give it a nickname?", MSGBOX_YESNO)
+    hidemonpic
+    if(var(VAR_RESULT) == YES){
+        call(Common_EventScript_GetGiftMonPartySlot)
+        call(Common_EventScript_NameReceivedPartyMon)
+    }
+}
+
+script NicknameBoxMon{
+
+    msgbox("Give it a nickname?", MSGBOX_YESNO)
+    hidemonpic
+    if(var(VAR_RESULT) == YES){
+        call(Common_EventScript_NameReceivedBoxMon)
+    }
+    msgbox("Transferred to PC")
+}
+
+text Starter_NotChosen{
+    "You did not choose the Pokemon."
+}
